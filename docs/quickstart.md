@@ -1,6 +1,6 @@
 # Quickstart
 
-## 1. 安装
+## 1. 瀹夎
 
 ```powershell
 cd 'D:\dsh work\src-high-value-hunter'
@@ -8,9 +8,9 @@ uv venv .venv
 uv pip install --python .\.venv\Scripts\python.exe --no-cache "mcp<2" httpx pyyaml
 ```
 
-## 2. 配置
+## 2. 閰嶇疆
 
-复制并填写：
+澶嶅埗骞跺～鍐欙細
 
 ```text
 config.yaml
@@ -19,22 +19,22 @@ config/identities.yaml
 config/accounts.yaml
 ```
 
-## 3. 注册 MCP
+## 3. 娉ㄥ唽 MCP
 
-参考：
+鍙傝€冿細
 
 ```text
 dsh/recon-hub.yml
 dsh/mcp.config.example.json
 ```
 
-## 4. 启动
+## 4. 鍚姩
 
 ```powershell
 .\scripts\run-recon-hub.ps1
 ```
 
-## 5. 标准流程
+## 5. 鏍囧噯娴佺▼
 
 ```text
 recon_phase("passive", ["example.com"])
@@ -53,14 +53,13 @@ recon_export_db(collection="findings")
 recon_export_db(collection="chains")
 ```
 
-## 6. 同步到 Kali
+## 6. 鍚屾鍒?Kali
 
 ```powershell
 .\scripts\sync-to-kali.ps1
 ```
 
-## 7. 注意
+## 7. 娉ㄦ剰
 
-- 第三方 MCP 需要自行配置
-- 主动测试前必须有 throttle profile
-- 遇到验证码 / 滑块 / IP 封禁，暂停并请求人工协助
+- 绗笁鏂?MCP 闇€瑕佽嚜琛岄厤缃?- 涓诲姩娴嬭瘯鍓嶅繀椤绘湁 throttle profile
+- 閬囧埌楠岃瘉鐮?/ 婊戝潡 / IP 灏佺锛屾殏鍋滃苟璇锋眰浜哄伐鍗忓姪

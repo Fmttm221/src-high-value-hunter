@@ -1,43 +1,26 @@
 # src-high-value-hunter
 
-面向授权 SRC 的高价值漏洞挖掘 skill + recon-hub MCP。
+闈㈠悜鎺堟潈 SRC 鐨勯珮浠峰€兼紡娲炴寲鎺?skill + recon-hub MCP銆?
+鏍稿績鐩爣鍙湁涓€涓細
 
-核心目标只有一个：
+> 鎸栧嚭楂樹环鍊笺€佸彲鎻愪氦銆佽兘鐗熷埄鐨勬紡娲炴垨瀹屾暣婕忔礊閾俱€?
+## 鐗规€?
+- L0-L6 瀹屾暣娴佺▼
+- 琚姩 / 涓诲姩璧勪骇鏀堕泦
+- WAF 鎺㈡祴涓庤嚜閫傚簲闄愰€?- hexstrike 宸ュ叿鏄犲皠涓庤緭鍑鸿В鏋?- assets / endpoints / findings / chains 鎸佷箙鍖?- 婕忔礊閾惧缓璁?- Markdown 鎶ュ憡鐢熸垚
+- 寰俊灏忕▼搴忔姄鍖呭垎鏋?- 缁忛獙搴擄細骞虫椂涓嶅姞杞斤紝鍛戒腑鍏抽敭璇嶆墠璇诲彇
+- Clash / 浠ｇ悊鍒囨崲鏀寔
 
-> 挖出高价值、可提交、能牟利的漏洞或完整漏洞链。
-
-## 特性
-
-- L0-L6 完整流程
-- 被动 / 主动资产收集
-- WAF 探测与自适应限速
-- hexstrike 工具映射与输出解析
-- assets / endpoints / findings / chains 持久化
-- 漏洞链建议
-- Markdown 报告生成
-- 微信小程序抓包分析
-- 经验库：平时不加载，命中关键词才读取
-- Clash / 代理切换支持
-
-## 架构
+## 鏋舵瀯
 
 ```text
-L0 目标与边界
-  ↓
-L1 资产收集
-  ↓
-L2 探针与暴露面
-  ↓
-L3 业务 / API / 认证建模
-  ↓
-L4 高价值漏洞发现
-  ↓
-L5 验证与漏洞链
-  ↓
-L6 报告与提交
-```
+L0 鐩爣涓庤竟鐣?  鈫?L1 璧勪骇鏀堕泦
+  鈫?L2 鎺㈤拡涓庢毚闇查潰
+  鈫?L3 涓氬姟 / API / 璁よ瘉寤烘ā
+  鈫?L4 楂樹环鍊兼紡娲炲彂鐜?  鈫?L5 楠岃瘉涓庢紡娲為摼
+  鈫?L6 鎶ュ憡涓庢彁浜?```
 
-## 目录结构
+## 鐩綍缁撴瀯
 
 ```text
 skill/
@@ -73,7 +56,7 @@ dsh/
   mcp.config.example.json
 ```
 
-## 安装
+## 瀹夎
 
 Windows:
 
@@ -91,10 +74,9 @@ cd src-high-value-hunter
 ./scripts/install.sh
 ```
 
-## 配置
+## 閰嶇疆
 
-复制：
-
+澶嶅埗锛?
 ```text
 config.example.yaml -> config.yaml
 config/targets.yaml
@@ -102,46 +84,43 @@ config/identities.yaml
 config/accounts.yaml
 ```
 
-填写：
-
-- 目标资产
-- 牟利标签
+濉啓锛?
+- 鐩爣璧勪骇
+- 鐗熷埄鏍囩
 - provider key
-- 账号身份
+- 璐﹀彿韬唤
 
-## dsh MCP 注册
+## dsh MCP 娉ㄥ唽
 
-参考：
+鍙傝€冿細
 
 ```text
 dsh/recon-hub.yml
 dsh/mcp.config.example.json
 ```
 
-第三方 MCP：
-
+绗笁鏂?MCP锛?
 - hexstrike
 - chrome-devtools
 - burp
 - ssh-mcp
 - wsl
 
-需要用户自行安装和配置。
-
-## 启动
+闇€瑕佺敤鎴疯嚜琛屽畨瑁呭拰閰嶇疆銆?
+## 鍚姩
 
 ```powershell
 .\scripts\run-recon-hub.ps1
 ```
 
-或：
+鎴栵細
 
 ```powershell
 $env:PYTHONPATH = ".\src"
 .\.venv\Scripts\python.exe -m recon_hub.server --config .\config.yaml
 ```
 
-## 标准流程
+## 鏍囧噯娴佺▼
 
 ```text
 recon_phase("passive", targets)
@@ -162,46 +141,39 @@ recon_export_db(collection="findings")
 recon_export_db(collection="chains")
 ```
 
-## 微信小程序抓包
-
+## 寰俊灏忕▼搴忔姄鍖?
 ```powershell
 python tools/wechat_capture.py start
-# 用户在微信中操作小程序
-python tools/wechat_capture.py stop
+# 鐢ㄦ埛鍦ㄥ井淇′腑鎿嶄綔灏忕▼搴?python tools/wechat_capture.py stop
 python scripts/parse_mini_log.py --out wechat_output.json --mini-only
 ```
 
-然后把输出写入 recon-hub：
-
+鐒跺悗鎶婅緭鍑哄啓鍏?recon-hub锛?
 ```text
 recon_ingest_endpoints
 recon_ingest_assets
 ```
 
-## 经验库
-
+## 缁忛獙搴?
 ```powershell
-python scripts/experience.py search "<关键词>"
-python scripts/experience.py add "<关键词>"
+python scripts/experience.py search "<鍏抽敭璇?"
+python scripts/experience.py add "<鍏抽敭璇?"
 ```
 
-规则：
+瑙勫垯锛?
+- 骞虫椂涓嶅姞杞?- 鍛戒腑鍏抽敭璇嶆墠璇诲彇
+- 鎶ュ憡鎻愪氦鍚庢墠鍐欏叆
+- 鍙啓楠岃瘉杩囩殑缁忛獙
 
-- 平时不加载
-- 命中关键词才读取
-- 报告提交后才写入
-- 只写验证过的经验
-
-## Clash / 网络
+## Clash / 缃戠粶
 
 ```powershell
 python scripts/clash.py status
 python scripts/clash.py list GLOBAL
-python scripts/clash.py switch GLOBAL "<节点名>"
+python scripts/clash.py switch GLOBAL "<鑺傜偣鍚?"
 ```
 
-`config.yaml`：
-
+`config.yaml`锛?
 ```yaml
 network:
   proxy: ""
@@ -210,13 +182,12 @@ network:
   clash_group: "GLOBAL"
 ```
 
-## 开发
-
+## 寮€鍙?
 ```bash
 make compile
 make smoke
 ```
 
-## 许可
+## 璁稿彲
 
 MIT
