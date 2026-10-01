@@ -1,0 +1,18 @@
+[project]
+name = "recon-hub"
+version = "0.1.0"
+description = "Recon Hub MCP server for src-high-value-hunter"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=1.0.0,<2.0.0",
+  "pydantic>=2.0",
+  "pyyaml>=6.0",
+  "httpx>=0.27",
+  "aiosqlite>=0.20",
+]
+
+[project.scripts]
+recon-hub = "recon_hub.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,22 @@
+accounts:
+  - id: acc1
+    role: user
+    tenant: tenant_a
+    phone: phone1
+    email: email1
+    password: ""
+    password_strategy: random
+  - id: acc2
+    role: user
+    tenant: tenant_b
+    phone: phone2
+    email: email2
+    password: ""
+    password_strategy: random
+  - id: admin
+    role: admin
+    tenant: tenant_a
+    phone: ""
+    email: ""
+    password: ""
+    available: false

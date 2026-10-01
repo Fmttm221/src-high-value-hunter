@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Env / secrets
+.env
+*.local
+config.yaml
+config/identities.yaml
+config/accounts.yaml
+config/targets.yaml
+wechat_output.json
+*.log
+
+# Runtime data
+data/
+outputs/
+
+# Editor
+.vscode/
+.idea/

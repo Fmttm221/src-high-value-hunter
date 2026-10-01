@@ -1,0 +1,24 @@
+project: src-high-value-hunter
+active_profile: example
+
+profiles:
+  example:
+    source: ""
+    targets:
+      - id: example-root
+        type: root_domain
+        value: example.com
+        include_subdomains: true
+        tags: [payment, account, admin, api]
+
+exclude:
+  third_party: []
+  shared_infra: []
+  destructive_paths: []
+  logout_paths: []
+
+testing:
+  mode: active
+  throttle: adaptive
+  initial_probe: true
+  proxy: burp

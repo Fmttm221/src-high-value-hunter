@@ -1,0 +1,21 @@
+# dsh MCP entry for recon-hub
+# Add this item to your dsh MCP config list.
+- id: mcp-recon-hub
+  name: '@deepseek-ai/dsh-mcp-client'
+  config:
+    serverName: recon-hub
+    transport: stdio
+    command: 'D:/dsh work/src-high-value-hunter/.venv/Scripts/python.exe'
+    args:
+      - '-m'
+      - 'recon_hub.server'
+      - '--config'
+      - 'D:/dsh work/src-high-value-hunter/config.yaml'
+    env:
+      PYTHONPATH: 'D:/dsh work/src-high-value-hunter/src'
+      RECON_HUB_CONFIG: 'D:/dsh work/src-high-value-hunter/config.yaml'
+    toolCallTimeoutMs: 180000
+    connectTimeoutMs: 30000
+    lazy: true
+    cacheFile: 'D:\dsh work\.mcp\cache\recon-hub.json'
+    lazyIdleTimeoutMs: 1800000

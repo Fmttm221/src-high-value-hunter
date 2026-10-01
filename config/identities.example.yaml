@@ -1,0 +1,13 @@
+identities:
+  - id: phone1
+    type: phone
+    value: ""
+  - id: phone2
+    type: phone
+    value: ""
+  - id: email1
+    type: email
+    value: ""
+  - id: email2
+    type: email
+    value: ""

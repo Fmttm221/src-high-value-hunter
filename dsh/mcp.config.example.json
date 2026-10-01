@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "recon-hub": {
+      "command": "D:/dsh work/src-high-value-hunter/.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "recon_hub.server",
+        "--config",
+        "D:/dsh work/src-high-value-hunter/config.yaml"
+      ],
+      "env": {
+        "PYTHONPATH": "D:/dsh work/src-high-value-hunter/src",
+        "RECON_HUB_CONFIG": "D:/dsh work/src-high-value-hunter/config.yaml"
+      }
+    }
+  }
+}

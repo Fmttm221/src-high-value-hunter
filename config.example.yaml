@@ -1,0 +1,62 @@
+server:
+  name: recon-hub
+  transport: stdio
+  host: 127.0.0.1
+  port: 8765
+storage:
+  sqlite: ./data/recon.db
+  jsonl_dir: ./data/jsonl
+providers:
+  crtsh:
+    enabled: true
+  certspotter:
+    enabled: true
+  urlscan:
+    enabled: true
+  otx:
+    enabled: false
+    api_key: ""
+  wayback:
+    enabled: true
+  github:
+    enabled: false
+    api_key: ""
+  shodan:
+    enabled: false
+    api_key: ""
+  censys:
+    enabled: false
+    api_id: ""
+    api_secret: ""
+  quake:
+    enabled: false
+    api_key: ""
+  zoomeye:
+    enabled: false
+    api_key: ""
+  hunter:
+    enabled: false
+    api_key: ""
+  netlas:
+    enabled: false
+    api_key: ""
+  virustotal:
+    enabled: false
+    api_key: ""
+  securitytrails:
+    enabled: false
+    api_key: ""
+  greynoise:
+    enabled: false
+    api_key: ""
+  abuseipdb:
+    enabled: false
+    api_key: ""
+  ipinfo:
+    enabled: false
+    api_key: ""
+network:
+  proxy: ""
+  clash_api: "http://127.0.0.1:9090"
+  clash_secret: ""
+  clash_group: "GLOBAL"
