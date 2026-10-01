@@ -1,6 +1,6 @@
 # Quickstart
 
-## 1. 瀹夎
+## 1. 安装
 
 ```powershell
 cd 'D:\dsh work\src-high-value-hunter'
@@ -8,33 +8,33 @@ uv venv .venv
 uv pip install --python .\.venv\Scripts\python.exe --no-cache "mcp<2" httpx pyyaml
 ```
 
-## 2. 閰嶇疆
+## 2. 配置
 
-澶嶅埗骞跺～鍐欙細
+复制并填写：
 
 ```text
-config.yaml
-config/targets.yaml
-config/identities.yaml
-config/accounts.yaml
+config.example.yaml -> config.yaml
+config/targets.example.yaml -> config/targets.yaml
+config/identities.example.yaml -> config/identities.yaml
+config/accounts.example.yaml -> config/accounts.yaml
 ```
 
-## 3. 娉ㄥ唽 MCP
+## 3. 注册 MCP
 
-鍙傝€冿細
+参考：
 
 ```text
 dsh/recon-hub.yml
 dsh/mcp.config.example.json
 ```
 
-## 4. 鍚姩
+## 4. 启动
 
 ```powershell
 .\scripts\run-recon-hub.ps1
 ```
 
-## 5. 鏍囧噯娴佺▼
+## 5. 标准流程
 
 ```text
 recon_phase("passive", ["example.com"])
@@ -44,22 +44,25 @@ recon_phase("exposure", ["example.com"])
 recon_phase("js", [], {"urls": ["https://example.com/app.js"]})
 recon_phase("code", ["example.com"])
 recon_phase("cloud", ["example"])
+recon_phase("wechat", ["https://example.com"])
 recon_ingest_endpoints([...])
 recon_phase("vuln")
 recon_phase("chain")
 recon_report(name="final")
 recon_export_db(collection="assets")
+recon_export_db(collection="endpoints")
 recon_export_db(collection="findings")
 recon_export_db(collection="chains")
 ```
 
-## 6. 鍚屾鍒?Kali
+## 6. 同步到 Kali
 
 ```powershell
 .\scripts\sync-to-kali.ps1
 ```
 
-## 7. 娉ㄦ剰
+## 7. 注意
 
-- 绗笁鏂?MCP 闇€瑕佽嚜琛岄厤缃?- 涓诲姩娴嬭瘯鍓嶅繀椤绘湁 throttle profile
-- 閬囧埌楠岃瘉鐮?/ 婊戝潡 / IP 灏佺锛屾殏鍋滃苟璇锋眰浜哄伐鍗忓姪
+- 第三方 MCP 需要自行配置
+- 主动测试前必须有 throttle profile
+- 遇到验证码 / 滑块 / IP 封禁，暂停并请求人工协助
