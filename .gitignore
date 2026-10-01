@@ -25,3 +25,5 @@ outputs/
 # Editor
 .vscode/
 .idea/
+# Temp leftovers
+tmp*/
